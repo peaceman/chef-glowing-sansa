@@ -1,0 +1,40 @@
+{
+  "run_list":[
+    "databox",
+    "rackbox"
+  ],
+  "appbox": {
+    "deploy_keys": ["ssh-rsa 5bnmu234567890sdfghghjk"],
+    "admin_keys": ["ssh-rsa 456789fghjkvbn567"]
+  },
+  "databox": {
+    "db_root_password": "we-love-random-passwords",
+    "databases": {
+      "postgresql": [
+        { 
+	  "username": "glowing-sansa",
+          "password": "glowing-sansa",
+          "database_name": "glowing-sansa"
+        }
+      ]
+    }
+  },
+  "rackbox": {
+    "ruby": {
+      "versions": ["1.9.3-p385", "1.9.2-p320"],
+      "global_version": "1.9.3-p385"
+    },
+    "apps": {
+      "unicorn": [
+        { "appname": "app1",
+          "hostname": "app1.test.com"
+        }
+      ],
+      "passenger": [
+        { "appname": "app2",
+          "hostname": "app2.test.com" }
+      ]
+    }
+  }
+}
+

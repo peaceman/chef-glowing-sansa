@@ -1,0 +1,41 @@
+{
+  "run_list":[
+    "databox",
+    "rackbox",
+    "glowing-sansa"
+  ],
+  "solr_app": {
+    "version": "4.3.1"
+  },
+  "appbox": {
+    "deploy_keys": ["ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQChK+31l6GvO06EUY2Cw1JFjkD1uRoRgykfEsWULGIALNc2tzvDKvofsXoEojjGeVaTBrPm1COFJYvod54b3W56KsKyTFhl67Imi8Z0SvOa7N/p8ccXy90V3ipLokxj7PqcPo3LLiKGHXKTVVud/n59DM2Tsq6tJX4rWEFB/vFywlfK9WeVKc+B9p/DfmJ8QZSNQBJi+ZmWCNyi6eEwnJECjuT1CloFADCxlWiyzGRWpvuA6DNSS9oBJxN3GHH9VhEWFnyGms0l41E6RNf5qBc8fJunXZSa9cVtnFPG/lj7y4pD0CoyOOaOOOsQYRz3RFlLldl8vnQMEj/wkN10MB2j"],
+    "admin_keys": ["ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQChK+31l6GvO06EUY2Cw1JFjkD1uRoRgykfEsWULGIALNc2tzvDKvofsXoEojjGeVaTBrPm1COFJYvod54b3W56KsKyTFhl67Imi8Z0SvOa7N/p8ccXy90V3ipLokxj7PqcPo3LLiKGHXKTVVud/n59DM2Tsq6tJX4rWEFB/vFywlfK9WeVKc+B9p/DfmJ8QZSNQBJi+ZmWCNyi6eEwnJECjuT1CloFADCxlWiyzGRWpvuA6DNSS9oBJxN3GHH9VhEWFnyGms0l41E6RNf5qBc8fJunXZSa9cVtnFPG/lj7y4pD0CoyOOaOOOsQYRz3RFlLldl8vnQMEj/wkN10MB2j"]
+  },
+  "databox": {
+    "db_root_password": "we-love-random-passwords",
+    "databases": {
+      "postgresql": [
+        { 
+	  "username": "glowing-sansa",
+          "password": "glowing-sansa",
+          "database_name": "glowing-sansa"
+        }
+      ]
+    }
+  },
+  "rackbox": {
+    "ruby": {
+      "versions": ["1.9.3-p385"],
+      "global_version": "1.9.3-p385"
+    },
+    "apps": {
+      "unicorn": [
+        { 
+	  "appname": "glowing-sansa",
+          "hostname": "glowing-sansa.nc23.de"
+        }
+      ]
+    }
+  }
+}
+
