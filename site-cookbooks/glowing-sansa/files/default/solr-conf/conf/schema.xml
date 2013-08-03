@@ -59,19 +59,19 @@
     <!-- *** This fieldType is used by Sunspot! *** -->
     <fieldType name="rand" class="solr.RandomSortField" omitNorms="true"/>
     <!-- *** This fieldType is used by Sunspot! *** -->
-	<fieldType name="text" class="solr.TextField" omitNorms="false">
-	  <analyzer type="index">
-	    <tokenizer class="solr.StandardTokenizerFactory"/>
-	    <filter class="solr.StandardFilterFactory"/>
-	    <filter class="solr.LowerCaseFilterFactory"/>
-	    <filter class="solr.NGramFilterFactory" minGramSize="2" maxGramSize="15"/>
-	  </analyzer>
-	  <analyzer type="query">
-	    <tokenizer class="solr.StandardTokenizerFactory"/>
-	    <filter class="solr.StandardFilterFactory"/>
-	    <filter class="solr.LowerCaseFilterFactory"/>
-	  </analyzer>
-	</fieldType>
+    <fieldType name="text" class="solr.TextField" omitNorms="false">
+      <analyzer type="index">
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.StandardFilterFactory"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.NGramFilterFactory" minGramSize="2" maxGramSize="15"/>
+      </analyzer>
+      <analyzer type="query">
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.StandardFilterFactory"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+      </analyzer>
+    </fieldType>
     <!-- *** This fieldType is used by Sunspot! *** -->
     <fieldType name="boolean" class="solr.BoolField" omitNorms="true"/>
     <!-- *** This fieldType is used by Sunspot! *** -->
@@ -202,13 +202,13 @@
     <!-- *** This dynamicField is used by Sunspot! *** -->
     <dynamicField name="*_lms" stored="true" type="slong" multiValued="true" indexed="true"/>
     <!-- *** This dynamicField is used by Sunspot! *** -->
-    <dynamicField name="*_s" stored="false" type="string" multiValued="false" indexed="true"/>
+    <dynamicField name="*_s" stored="false" type="text" multiValued="false" indexed="true"/>
     <!-- *** This dynamicField is used by Sunspot! *** -->
-    <dynamicField name="*_sm" stored="false" type="string" multiValued="true" indexed="true"/>
+    <dynamicField name="*_sm" stored="false" type="text" multiValued="true" indexed="true"/>
     <!-- *** This dynamicField is used by Sunspot! *** -->
-    <dynamicField name="*_ss" stored="true" type="string" multiValued="false" indexed="true"/>
+    <dynamicField name="*_ss" stored="true" type="text" multiValued="false" indexed="true"/>
     <!-- *** This dynamicField is used by Sunspot! *** -->
-    <dynamicField name="*_sms" stored="true" type="string" multiValued="true" indexed="true"/>
+    <dynamicField name="*_sms" stored="true" type="text" multiValued="true" indexed="true"/>
     <!-- *** This dynamicField is used by Sunspot! *** -->
     <dynamicField name="*_it" stored="false" type="tint" multiValued="false" indexed="true"/>
     <!-- *** This dynamicField is used by Sunspot! *** -->
@@ -275,8 +275,7 @@
   The default is OR, which is generally assumed so it is not a good idea to change it
   globally here.  The "q.op" request parameter takes precedence over this.
   -->
-  <solrQueryParser defaultOperator="OR"/>
-
+  <solrQueryParser defaultOperator="AND"/>
   <!-- copyField commands copy one field to another at the time a document
         is added to the index.  It's used either to index the same field differently,
         or to add multiple fields to the same field for easier/faster searching.  -->
